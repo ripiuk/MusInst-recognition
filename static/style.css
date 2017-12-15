@@ -1,0 +1,22 @@
+p.logo-title{
+    color: #4C431D;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.white-background{
+    background-color: white !important;
+}
+
+.downl-btn{
+    background-color: #FFE162 !important;
+    color: #4C431D !important;
+}
+
+.brown-border{
+    border-color: #4C431D;
+}
+
+.submit-btn{
+    margin-top:10px;
+}

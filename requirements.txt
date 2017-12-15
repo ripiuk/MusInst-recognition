@@ -1,2 +1,5 @@
 numpy==1.13.3
 tensorflow==1.4.1
+aiohttp==2.3.6
+Jinja2==2.10
+aiohttp-jinja2==0.14.0

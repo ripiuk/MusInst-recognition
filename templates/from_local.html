@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Choose an image from the local storage{% endblock %}
+
+{% block local_active %}is-active{% endblock %}
+
+{% block choose_file %}
+  <h2 class="subtitle">
+    Choose an image of music instrument from the local storage to recognize it
+  </h2>
+
+  <div class="file has-name is-centered">
+    <label id="image_path" class="file-label">
+      <input id="uploadFile" class="file-input" type="file" name="resume">
+      <span class="file-cta downl-btn brown-border">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+      <span id="display_path" class="white-background file-name brown-border">
+        path_to_file.jpg
+      </span>
+    </label>
+  </div>
+
+  <div class="level-item submit-btn">
+    <p class="control">
+      <button class="button is-warning is-inverted" type="submit">
+        Submit
+      </button>
+    </p>
+  </div>
+
+{% endblock %}
+
+{% block body %}
+<script src="{{ app.router.static.url(filename='display_file_name.js') }}"></script>
+{% endblock %}
