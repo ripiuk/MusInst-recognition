@@ -6,12 +6,13 @@
   <h2 class="subtitle">
     Choose an image of music instrument from an url to recognize it
   </h2>
+
+<form action="" method="post" accept-charset="utf-8">
   <div class="level-item">
       <p class="control">
-        <input name="github_repo" class="input brown-border" type="text" placeholder="Link to image of music instrument">
+        <input name="image_url" class="input brown-border" type="text" placeholder="Link to image of music instrument">
       </p>
   </div>
-
   <div class="level-item submit-btn">
     <p class="control">
       <button class="button is-warning is-inverted" type="submit">
@@ -19,6 +20,7 @@
       </button>
     </p>
   </div>
+</form>
 {% endblock %}
 
 {% block body %}
