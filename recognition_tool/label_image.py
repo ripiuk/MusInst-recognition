@@ -54,7 +54,7 @@ def load_labels(label_file: str) -> list:
     return label
 
 
-def recognize_image(path_to_image: str):
+def recognize_image(path_to_image: str) -> tuple:
     file_name = path_to_image
     model_file = "recognition_tool/retrained_graph.pb"
     label_file = "recognition_tool/retrained_labels.txt"
@@ -87,7 +87,4 @@ def recognize_image(path_to_image: str):
     top_k = results.argsort()[-5:][::-1]
     labels = load_labels(label_file)
 
-    print('\nEvaluation time (1-image): {:.3f}s\n'.format(end-start))
-
-    for i in top_k:
-        print(labels[i], results[i])
+    return '{:.3f}'.format(end-start), [(labels[i], results[i]) for i in top_k]

@@ -4,11 +4,22 @@
 
 {% block local_active %}is-active{% endblock %}
 
+{% block alarm %}
+{% if not_choose_file %}
+<div id="notification" class="notification is-danger">
+  <!--TODO: change buttin onclick-->
+  <button class="delete" onclick="getElementById('notification').style.display = 'none';"></button>
+  You didn't choose any file
+</div>
+{% endif %}
+{% endblock %}
+
 {% block choose_file %}
   <h2 class="subtitle">
     Choose an image of music instrument from the local storage to recognize it
   </h2>
 
+<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
   <div class="file has-name is-centered">
     <label id="image_path" class="file-label">
       <input id="uploadFile" class="file-input" type="file" name="resume">
@@ -28,14 +39,112 @@
 
   <div class="level-item submit-btn">
     <p class="control">
-      <button class="button is-warning is-inverted" type="submit">
+      <button type="submit" class="button is-warning is-inverted" value="submit">
         Submit
       </button>
     </p>
   </div>
-
+</form>
 {% endblock %}
 
 {% block body %}
+
+{% set eval_time = 0.146 %}
+{% set rec = [('balalaika', 0.99998736), ('domra', '1.2639582e-05'), ('violin', '1.9605832e-10')] %}
+
+<div class="container is-fullhd" style="border-top: 1px solid #4C431D;border-bottom: 1px solid #4C431D;">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical">
+            <div class="tile">
+              <div class="tile is-parent">
+                <article class="tile is-child notification has-text-centered" style="background-color:white;">
+                  <p class="title">Result</p>
+                  <p class="subtitle">The instrument is: <b style="background-color:#FFE162;color:#4C431D;">&nbsp;{{rec.0.0}}&nbsp;</b> ({{ (rec.0.1*100) | int }}%)</p>
+                  <div class="level-item">
+                    <canvas id="myDoughnutChart"></canvas>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical">
+            <div class="tile">
+              <div class="tile is-parent">
+                <article class="tile is-child notification has-text-centered" style="background-color:white;">
+                  <p class="title">Your image</p>
+                  <div class="level-item">
+                    <figure class="image">
+                      <img src="media/hor.jpg" style="max-height:350px;width:auto;">
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="tile is-parent is-vertical has-text-centered">
+        <article class="tile is-child notification is-primary">
+          <p class="title">{{rec.0.0 | title}}</p>
+          <p class="subtitle">Top tile</p>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% if recognized %}
+<div class="container">
+    {{recognized}}
+  <figure class="image is-128x128">
+    <img src="media/{{image_path}}">
+  </figure>
+</div>
+{% endif %}
+
+
+<script>
+  var ctx = document.getElementById("myDoughnutChart");
+    var data = {
+      labels: [
+        "{{rec.0.0|title}}",
+        "{{rec.1.0|title}}",
+        "{{rec.2.0|title}}"
+      ],
+      datasets: [
+        {
+          data: [{{rec.0.1}}*100, {{rec.1.1}}*100, {{rec.2.1}}*100],
+          backgroundColor: [
+            "#FFE162",
+            "#36A2EB",
+            "#AEFF60"
+          ],
+          hoverBackgroundColor: [
+            "#FF6354",
+            "#36A2EB"
+          ]
+        }]
+    };
+    var myDoughnutChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: data,
+      options: {
+        responsive: false
+      }
+    });
+
+</script>
+
 <script src="{{ app.router.static.url(filename='display_file_name.js') }}"></script>
 {% endblock %}

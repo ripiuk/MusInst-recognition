@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <link rel="stylesheet" href="{{ app.router.static.url(filename='style.css') }}">
+    <!--TODO: load it not here-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body>
 
 <section class="hero is-warning is-medium">
+  {% block alarm %}{% endblock %}
   <div class="hero-head">
     <nav class="navbar">
       <div class="container">
@@ -57,5 +60,16 @@
 
 {% block body %}
 {% endblock %}
+
+<footer class="footer" style="background-color:#FFE162; color:#4C431D">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <b>MusInst</b> by Rypiuk Oleksandr. <a href="https://github.com/ripiuk" style="color:#4C431D;text-decoration: underline">GitHub page</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
