@@ -32,7 +32,7 @@
         </span>
       </span>
       <span id="display_path" class="white-background file-name brown-border">
-        path_to_file.jpg
+        No file
       </span>
     </label>
   </div>
@@ -48,11 +48,8 @@
 {% endblock %}
 
 {% block body %}
-
-{% set eval_time = 0.146 %}
-{% set rec = [('balalaika', 0.99998736), ('domra', '1.2639582e-05'), ('violin', '1.9605832e-10')] %}
-
-<div class="container is-fullhd" style="border-top: 1px solid #4C431D;border-bottom: 1px solid #4C431D;">
+{% if recognized %}
+<div class="container is-fullhd">
   <div class="container">
     <div class="columns">
       <div class="column is-half">
@@ -60,9 +57,9 @@
           <div class="tile is-vertical">
             <div class="tile">
               <div class="tile is-parent">
-                <article class="tile is-child notification has-text-centered" style="background-color:white;">
+                <article class="tile is-child notification has-text-centered white-background">
                   <p class="title">Result</p>
-                  <p class="subtitle">The instrument is: <b style="background-color:#FFE162;color:#4C431D;">&nbsp;{{rec.0.0}}&nbsp;</b> ({{ (rec.0.1*100) | int }}%)</p>
+                  <p class="subtitle">The instrument is: <b style="background-color:#FFE162;color:#4C431D;">&nbsp;{{recognized.0.0}}&nbsp;</b> ({{ (recognized.0.1*100) | int }}%)</p>
                   <div class="level-item">
                     <canvas id="myDoughnutChart"></canvas>
                   </div>
@@ -77,11 +74,11 @@
           <div class="tile is-vertical">
             <div class="tile">
               <div class="tile is-parent">
-                <article class="tile is-child notification has-text-centered" style="background-color:white;">
+                <article class="tile is-child notification has-text-centered white-background">
                   <p class="title">Your image</p>
                   <div class="level-item">
                     <figure class="image">
-                      <img src="media/hor.jpg" style="max-height:350px;width:auto;">
+                      <img src="media/{{image_path}}" style="max-height:350px;width:auto;">
                     </figure>
                   </div>
                 </article>
@@ -93,10 +90,75 @@
     </div>
 
     <div class="tile">
-      <div class="tile is-parent is-vertical has-text-centered">
-        <article class="tile is-child notification is-primary">
-          <p class="title">{{rec.0.0 | title}}</p>
-          <p class="subtitle">Top tile</p>
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification white-background">
+          <p class="title" style="text-align: center;">{{recognized.0.0 | title}}</p>
+          <div class="content">
+            {%if recognized.0.0 == 'balalaika'%}
+              <img src="static/balalaika.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>Balalaika is a Russian stringed musical instrument with a characteristic triangular wooden,
+                hollow body and three strings. Two strings are usually tuned to the same note and the third string is
+                a perfect fourth higher. The higher-pitched balalaikas are used to play melodies and chords.
+                The instrument generally has a short sustain, necessitating rapid strumming or plucking when it is
+                used to play melodies. Balalaikas are often used for Russian folk music and dancing.</p>
+              <p>The balalaika family of instruments includes instruments of various sizes, from the highest-pitched
+                to the lowest: the piccolo balalaika, prima balalaika, secunda balalaika, alto balalaika, bass
+                balalaika, and contrabass balalaika. There are balalaika orchestras which consist solely of different
+                balalaikas; these ensembles typically play Classical music that has been arranged for balalaikas.
+                The prima balalaika is the most common; the piccolo is rare. There have also been descant and tenor
+                balalaikas, but these are considered obsolete. All have three-sided bodies; spruce, evergreen,
+                or fir tops; and backs made of three to nine wooden sections (usually maple).
+                They are typically strung with three strings, and the necks are fretted.</p>
+              <p>The prima balalaika, secunda and alto are played either with the fingers or a plectrum (pick),
+                depending on the music being played, and the bass and contrabass (equipped with extension legs
+                that rest on the floor) are played with leather plectra. The rare piccolo instrument is usually
+                played with a pick.</p>
+            {%elif recognized.0.0 == 'violin'%}
+              <img src="static/violin.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>Domra is a long-necked Russian, Belarusian and Ukrainian folk string instrument of the lute family
+                with a round body and three or four metal strings.</p>
+              <p>In 1896, a student of Vasily Vasilievich Andreyev found a broken instrument in a stable in rural Russia.
+                It was thought that this instrument may have been an example of a domra, although no illustrations or
+                examples of the traditional domra were known to exist in Russian chronicles (the traditional domra was
+                only known through numerous mentions in folklore, though examples of a related Turkic instrument,
+                the dombra, existed). A three-stringed version of this instrument was later redesigned in 1896,
+                patented, and introduced into the orchestra of Russian folk instruments.</p>
+              <p>The three-stringed domra uses a tuning in 4ths.</p>
+              <p>Later, a four-stringed version was developed employing a violin tuning by Moscow instrument maker,
+                Liubimov, in 1905.</p>
+              <p>In recent times, scholars have come to the conclusion that the term "domra" actually described a
+                percussive instrument popular in Russia, and that the discovered instrument was either a variant of
+                the balalaika or a mandolin.</p>
+              <p>Today, it is the three-stringed domra that is used almost exclusively in Russia. It is played with a
+                plectrum, and is often used to play the lead melody in Russian balalaika ensembles.</p>
+            {%elif recognized.0.0 == 'domra'%}
+              <img src="static/domra.jpeg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>The violin, also known informally as a fiddle, is a wooden string instrument in the violin family.
+                It is the smallest and highest-pitched instrument in the family in regular use.
+                Smaller violin-type instruments are known, including the violino piccolo and the kit violin,
+                but these are virtually unused. The violin typically has four strings tuned in perfect fifths,
+                and is most commonly played by drawing a bow across its strings, though it can also be played by plucking
+                the strings with the fingers (pizzicato) and by using the wooden side of the bow (col legno).</p>
+              <p>Violins are important instruments in a wide variety of musical genres.
+                They are most prominent in the Western classical tradition and in many varieties of folk music.
+                They are also frequently used in genres of folk including country music and bluegrass music and in jazz.
+                Electric violins are used in some forms of rock music and jazz; further, the violin has come to be
+                played in many non-Western music cultures, including Indian music and Iranian music. The name fiddle
+                is often used in reference to folk music, particularly Irish traditional music, and bluegrass,
+                but this nickname is also used regardless of the type of music played on it.</p>
+              <p>The violin was first known in 16th-century Italy, with some further modifications occurring in the
+                18th and 19th centuries. In Europe, it served as the basis for stringed instruments used in western
+                classical music, such as the viola.</p>
+              <p>Violinists and collectors particularly prize the fine historical instruments made by the Stradivari,
+                Guarneri and Amati families from the 16th to the 18th century in Brescia and Cremona and by Jacob
+                Stainer in Austria. According to their reputation, the quality of their sound has defied attempts to
+                explain or equal it, though this belief is disputed.[4][5] Great numbers of instruments have come from
+                the hands of less famous makers, as well as still greater numbers of mass-produced commercial
+                "trade violins" coming from cottage industries in places such as Saxony, Bohemia, and Mirecourt.
+                Many of these trade instruments were formerly sold by Sears,
+                Roebuck and Co. and other mass merchandisers.</p>
+            {% endif %}
+          </div>
         </article>
       </div>
     </div>
@@ -104,35 +166,26 @@
   </div>
 </div>
 
-{% if recognized %}
-<div class="container">
-    {{recognized}}
-  <figure class="image is-128x128">
-    <img src="media/{{image_path}}">
-  </figure>
-</div>
-{% endif %}
-
-
 <script>
   var ctx = document.getElementById("myDoughnutChart");
     var data = {
       labels: [
-        "{{rec.0.0|title}}",
-        "{{rec.1.0|title}}",
-        "{{rec.2.0|title}}"
+        "{{recognized.0.0|title}}",
+        "{{recognized.1.0|title}}",
+        "{{recognized.2.0|title}}"
       ],
       datasets: [
         {
-          data: [{{rec.0.1}}*100, {{rec.1.1}}*100, {{rec.2.1}}*100],
+          data: [{{recognized.0.1}}*100, {{recognized.1.1}}*100, {{recognized.2.1}}*100],
           backgroundColor: [
             "#FFE162",
-            "#36A2EB",
-            "#AEFF60"
+            "#00D0B1",
+            "#FF3E61"
           ],
           hoverBackgroundColor: [
-            "#FF6354",
-            "#36A2EB"
+            "#FFE169",
+            "#00D0B9",
+            "#FF3E69"
           ]
         }]
     };
@@ -145,6 +198,48 @@
     });
 
 </script>
+
+{% else %}
+<div class="container is-fullhd">
+  <div class="container">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification white-background">
+          <p class="title" style="text-align: center;">Musical instruments</p>
+          <div class="content">
+            <img src="static/mus-inst.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+            <p>A musical instrument is an instrument created or adapted to make musical sounds. In principle,
+              any object that produces sound can be considered a musical instrument—it is through purpose that the
+              object becomes a musical instrument. The history of musical instruments dates to the beginnings of human
+              culture. Early musical instruments may have been used for ritual, such as a trumpet to signal success
+              on the hunt, or a drum in a religious ceremony. Cultures eventually developed composition and performance
+              of melodies for entertainment. Musical instruments evolved in step with changing applications.</p>
+            <p>The date and origin of the first device considered a musical instrument is disputed. The oldest object
+              that some scholars refer to as a musical instrument, a simple flute, dates back as far as 67,000 years.
+              Some consensus dates early flutes to about 37,000 years ago. However, most historians believe that
+              determining a specific time of musical instrument invention is impossible due to the subjectivity of
+              the definition and the relative instability of materials used to make them. Many early musical instruments
+              were made from animal skins, bone, wood, and other non-durable materials.</p>
+            <p>Musical instruments developed independently in many populated regions of the world. However, contact
+              among civilizations caused rapid spread and adaptation of most instruments in places far from their
+              origin. By the Middle Ages, instruments from Mesopotamia were in maritime Southeast Asia, and Europeans
+              played instruments from North Africa. Development in the Americas occurred at a slower pace, but cultures
+              of North, Central, and South America shared musical instruments. By 1400, musical instrument development
+              slowed in many areas and was dominated by the Occident.</p>
+            <p>Musical instrument classification is a discipline in its own right, and many systems of classification
+              have been used over the years. Instruments can be classified by their effective range, their material
+              composition, their size, etc. However, the most common academic method, Hornbostel-Sachs, uses the means
+              by which they produce sound. The academic study of musical instruments is called organology.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+
 
 <script src="{{ app.router.static.url(filename='display_file_name.js') }}"></script>
 {% endblock %}

@@ -34,3 +34,12 @@ p.logo-title{
     border-style: solid;
     border-width: 5px;
 }
+
+.container-border{
+    border-top: 1px solid #4C431D !important;
+    border-bottom: 1px solid #4C431D !important;
+}
+
+.white-background{
+    background-color:white;
+}
