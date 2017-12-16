@@ -18,3 +18,9 @@ necessary libraries by command:
     make runserver
 ~~~
 * Go to http://127.0.0.1:8080
+
+## Main page
+![Looks like that](static/main_page.png)
+
+## Result page
+![Looks like that](static/result_page.png)
