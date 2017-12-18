@@ -15,9 +15,11 @@ what musical instrument is in front of you (by the picture).
 ## How it looks like
 
 ### Main page
+
 ![main](static/main_page.png)
 
 ### Result page
+
 ![result](static/result_page.png)
 
 ### How to run
@@ -44,10 +46,13 @@ necessary libraries by command:
 
 ### How to recognize a musical instrument by a picture
 * Download from a local storage
+    
     ![local](static/from_local.png)
 
-* Using url 
+* Using url
+    
     ![url](static/by_url.png)
 
 ### Tensorflow graph (architecture: mobilenet_0.50_224)
+
 ![graph](static/graph.png)
