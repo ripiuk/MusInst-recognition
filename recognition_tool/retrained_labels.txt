@@ -1,3 +1,6 @@
+accordion
+bagpipes
 balalaika
+bassoon
 domra
 violin

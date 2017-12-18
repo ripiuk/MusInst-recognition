@@ -84,7 +84,7 @@ def recognize_image(path_to_image: str) -> tuple:
         end = time.time()
     results = np.squeeze(results)
 
-    top_k = results.argsort()[-5:][::-1]
+    top_k = results.argsort()[-6:][::-1]  # [-6] - amount of output fields
     labels = load_labels(label_file)
 
     return '{:.3f}'.format(end-start), [(labels[i], results[i]) for i in top_k]

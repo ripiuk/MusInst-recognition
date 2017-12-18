@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--TODO: Add titles-->
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
@@ -133,8 +134,8 @@
                 depending on the music being played, and the bass and contrabass (equipped with extension legs
                 that rest on the floor) are played with leather plectra. The rare piccolo instrument is usually
                 played with a pick.</p>
-            {%elif recognized.0.0 == 'violin'%}
-              <img src="static/violin.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+            {%elif recognized.0.0 == 'domra'%}
+              <img src="static/domra.jpeg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
               <p>Domra is a long-necked Russian, Belarusian and Ukrainian folk string instrument of the lute family
                 with a round body and three or four metal strings.</p>
               <p>In 1896, a student of Vasily Vasilievich Andreyev found a broken instrument in a stable in rural Russia.
@@ -151,8 +152,8 @@
                 the balalaika or a mandolin.</p>
               <p>Today, it is the three-stringed domra that is used almost exclusively in Russia. It is played with a
                 plectrum, and is often used to play the lead melody in Russian balalaika ensembles.</p>
-            {%elif recognized.0.0 == 'domra'%}
-              <img src="static/domra.jpeg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+            {%elif recognized.0.0 == 'violin'%}
+              <img src="static/violin.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
               <p>The violin, also known informally as a fiddle, is a wooden string instrument in the violin family.
                 It is the smallest and highest-pitched instrument in the family in regular use.
                 Smaller violin-type instruments are known, including the violino piccolo and the kit violin,
@@ -177,6 +178,87 @@
                 "trade violins" coming from cottage industries in places such as Saxony, Bohemia, and Mirecourt.
                 Many of these trade instruments were formerly sold by Sears,
                 Roebuck and Co. and other mass merchandisers.</p>
+            {%elif recognized.0.0 == 'accordion'%}
+              <img src="static/accordion.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>Accordions (from 19th century German Akkordeon, from Akkord—"musical chord, concord of sounds") are a
+                family of box-shaped musical instruments of the bellows-driven free-reed aerophone type, colloquially
+                referred to as a squeezebox. A person who plays the accordion is called an accordionist.
+                The concertina and bandoneón are related; the harmonium and American reed organ are in the
+                same family.</p>
+              <p>The instrument is played by compressing or expanding the bellows while pressing buttons or keys,
+                causing pallets to open, which allow air to flow across strips of brass or steel, called reeds.
+                These vibrate to produce sound inside the body. Valves on opposing reeds of each note are used
+                to make the instrument's reeds sound louder without air leaking from each reed block.[notes 1]
+                The performer normally plays the melody on buttons or keys on the right-hand manual, and the
+                accompaniment, consisting of bass and pre-set chord buttons, on the left-hand manual.</p>
+              <p>The accordion is widely spread across the world. In some countries (for example Brazil,
+                Colombia and Mexico) it is used in popular music (for example Forró, Sertanejo and B-Pop in Brazil),
+                whereas in other regions (such as Europe, North America and other countries in South America) it tends
+                to be more used for dance-pop and folk music and as well as in regional and is often used in folk music
+                in Europe, North America and South America. Nevertheless, in Europe and North America, some popular
+                music acts also make use of the instrument. Additionally, the accordion is also used in cajun, zydeco,
+                jazz music and in both solo and orchestra performances of classical music. The piano accordion is the
+                official city instrument of San Francisco, California.[4] Many conservatories in Europe have classical
+                accordion departments. The oldest name for this group of instruments is harmonika, from the Greek
+                harmonikos, meaning harmonic, musical. Today, native versions of the name accordion are more common.
+                These names refer to the type of accordion patented by Cyrill Demian, which concerned "automatically
+                coupled chords on the bass side".</p>
+            {%elif recognized.0.0 == 'bagpipes'%}
+              <img src="static/bagpipes.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>Bagpipes are a wind instrument using enclosed reeds fed from a constant reservoir of air in the form of
+                a bag. Though the Scottish Great Highland bagpipes are the best known in the Anglophone world,
+                bagpipes have been played for a millennium or more throughout large parts of Europe, northern
+                Africa, and western Asia, including Turkey, the Caucasus, and around the Persian Gulf.
+                The term bagpipe is equally correct in the singular or plural, though pipers usually refer to
+                the bagpipes as "the pipes", "a set of pipes" or "a stand of pipes".</p>
+              <p>A set of bagpipes minimally consists of an air supply, a bag, a chanter, and usually at least one
+                drone. Many bagpipes have more than one drone (and, sometimes, more than one chanter) in various
+                combinations, held in place in stocks—sockets that fasten the various pipes to the bag.</p>
+              <p>The most common method of supplying air to the bag is through blowing into a blowpipe or blowstick.
+                In some pipes the player must cover the tip of the blowpipe with their tongue while inhaling,
+                but most blowpipes have a non-return valve that eliminates this need. In recent times, there are
+                many instruments that assist in creating a clean air flow to the pipes and assist the collection
+                of condensation.</p>
+              <p>An innovation, dating from the 16th or 17th century, is the use of a bellows to supply air.
+                In these pipes, sometimes called "cauld wind pipes", air is not heated or moistened by the player's
+                breathing, so bellows-driven bagpipes can use more refined or delicate reeds. Such pipes include the
+                Irish uilleann pipes; the Scottish border pipes and Lowland pipes; Northumbrian smallpipes, pastoral
+                pipes and English Border pipes in Britain; and the musette de cour in France.</p>
+              <p>The bag is an airtight reservoir that holds air and regulates its flow via arm pressure, allowing the
+                player to maintain continuous even sound. The player keeps the bag inflated by blowing air into it
+                through a blowpipe or pumping air into it with a bellows. Materials used for bags vary widely,
+                but the most common are the skins of local animals such as goats, dogs, sheep, and cows.
+                More recently, bags made of synthetic materials including Gore-Tex have become much more common.
+                A drawback of the synthetic bag is the potential for fungal spores to colonise the bag because of
+                a reduction in necessary cleaning, with the associated danger of lung infection. An advantage of a
+                synthetic bag is that they have a zip which allows the user to fit a more effective moisture trap to
+                the inside of the bag.</p>
+              <p>Bags cut from larger materials are usually saddle-stitched with an extra strip folded over the seam
+                and stitched (for skin bags) or glued (for synthetic bags) to reduce leaks. Holes are then cut to
+                accommodate the stocks. In the case of bags made from largely intact animal skins, the stocks are
+                typically tied into the points where limbs and the head joined the body of the whole animal,
+                a construction technique common in Central Europe.</p>
+            {%elif recognized.0.0 == 'bassoon'%}
+              <img src="static/bassoon.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
+              <p>The bassoon is a woodwind instrument in the double reed family that typically plays music written in
+                the bass and tenor clefs, and occasionally the treble. Appearing in its modern form in the 19th century,
+                the bassoon figures prominently in orchestral, concert band, and chamber music literature.
+                The bassoon is a non-transposing instrument known for its distinctive tone colour, wide range,
+                variety of character and agility. Listeners often compare its warm, dark, reedy timbre to that of a
+                male baritone voice. Someone who plays the bassoon is called a bassoonist.</p>
+              <p>The word bassoon comes from French basson and from Italian bassone (basso with the augmentative
+                suffix -one). However, the Italian name for the same instrument is fagotto and in Spanish it is fagot.
+                is a Germanic word which means bundle of sticks.</p>
+              <p>The bassoon disassembles into six main pieces, including the reed. The bell, extending upward;
+                the bass joint (or long joint), connecting the bell and the boot; the boot (or butt), at the bottom of
+                the instrument and folding over on itself; the wing joint (or tenor joint), which extends from boot to
+                bocal; and the bocal (or crook), a crooked metal tube that attaches the wing joint to a reed
+                (About this sound listen (help·info)). Bassoons are double reed instruments like the oboe.</p>
+              <p>Folded upon itself, the bassoon stands 1.34 m (4 ft 5 in) tall, but the total sounding length is
+                2.54 m (8 ft 4 in). Playing is facilitated by doubling the tube back on itself and by closing the
+                distance between the widely spaced holes with a complex system of key work, which extends throughout
+                nearly the entire length of the instrument. There are also short-reach bassoons made for the benefit
+                of young or petite players.</p>
             {% endif %}
           </div>
         </article>
@@ -185,27 +267,37 @@
 
   </div>
 </div>
-
+<!--TODO: Make it scalable-->
 <script>
   var ctx = document.getElementById("myDoughnutChart");
     var data = {
       labels: [
         "{{recognized.0.0|title}}",
         "{{recognized.1.0|title}}",
-        "{{recognized.2.0|title}}"
+        "{{recognized.2.0|title}}",
+        "{{recognized.3.0|title}}",
+        "{{recognized.4.0|title}}",
+        "{{recognized.5.0|title}}"
       ],
       datasets: [
         {
-          data: [{{recognized.0.1}}*100, {{recognized.1.1}}*100, {{recognized.2.1}}*100],
+          data: [{{recognized.0.1}}*100, {{recognized.1.1}}*100, {{recognized.2.1}}*100,
+          {{recognized.3.1}}*100, {{recognized.4.1}}*100, {{recognized.5.1}}*100],
           backgroundColor: [
             "#FFE162",
             "#00D0B1",
-            "#FF3E61"
+            "#FF3E61",
+            "#9b59b6",
+            "#34495e",
+            "#e74c3c"
           ],
           hoverBackgroundColor: [
             "#FFE169",
             "#00D0B9",
-            "#FF3E69"
+            "#FF3E69",
+            "#9b59b0",
+            "#344957",
+            "#e74c39"
           ]
         }]
     };
@@ -226,6 +318,13 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification white-background">
           <p class="title" style="text-align: center;">Musical instruments</p>
+          <p class="subtitle" style="text-align: center;">
+            <span class="tag is-warning">accordion</span>
+            <span class="tag is-warning">bagpipes</span>
+            <span class="tag is-warning">balalaika</span>
+            <span class="tag is-warning">bassoon</span>
+            <span class="tag is-warning">domra</span>
+            <span class="tag is-warning">violin</span></p>
           <div class="content">
             <img src="static/mus-inst.jpg" style="max-height:350px;width:auto;margin-right:10px;" align="left">
             <p>A musical instrument is an instrument created or adapted to make musical sounds. In principle,
